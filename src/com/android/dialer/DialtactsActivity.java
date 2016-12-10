@@ -532,14 +532,6 @@ public class DialtactsActivity extends TransactionSafeActivity implements View.O
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_import_export:
-                // We hard-code the "contactsAreAvailable" argument because doing it properly would
-                // involve querying a {@link ProviderStatusLoader}, which we don't want to do right
-                // now in Dialtacts for (potential) performance reasons. Compare with how it is
-                // done in {@link PeopleActivity}.
-                ImportExportDialogFragment.show(getFragmentManager(), true,
-                        DialtactsActivity.class);
-                return true;
             case R.id.menu_clear_frequents:
                 ClearFrequentsDialog.show(getFragmentManager());
                 return true;
@@ -1171,11 +1163,6 @@ public class DialtactsActivity extends TransactionSafeActivity implements View.O
         if (mDialButton != null) mDialButton.setEnabled(enabled);
         if (mDialButton_1 != null) mDialButton_1.setEnabled(enabled);
         if (mDialButton_2 != null) mDialButton_2.setEnabled(enabled);
-    }
-
-    @Override
-    public void setDialButtonContainerVisible(boolean visible) {
-        mFakeActionBar.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     /**
